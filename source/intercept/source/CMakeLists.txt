@@ -15,6 +15,8 @@ target_compile_options(intercept_a PUBLIC -fno-exceptions -fno-rtti)
 set_target_properties(intercept_a PROPERTIES LINKER_LANGUAGE "C")
 
 # Proto file
+get_filename_component(supervise_proto "../proto/supervise.proto" ABSOLUTE)
+get_filename_component(supervise_proto_path "${supervise_proto}" PATH)
 get_filename_component(hw_proto "../proto/helloworld.proto" ABSOLUTE)
 get_filename_component(hw_proto_path "${hw_proto}" PATH)
 

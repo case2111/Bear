@@ -2,10 +2,10 @@ find_package(Threads REQUIRED)
 
 set(JSON_BuildTests OFF CACHE INTERNAL "")
 set(JSON_Install OFF CACHE INTERNAL "")
-add_subdirectory(json)
+add_subdirectory(dependencies/json)
 
 set(INSTALL_GTEST OFF CACHE INTERNAL "")
-add_subdirectory(googletest)
+add_subdirectory(dependencies/googletest)
 
 option(USE_SYSTEM_GRPC "Use system installed gRPC" OFF)
 if(USE_SYSTEM_GRPC)
@@ -63,8 +63,6 @@ else()
         set(_GRPC_CPP_PLUGIN_EXECUTABLE $<TARGET_FILE:grpc_cpp_plugin>)
     endif()
 endif()
-
-add_subdirectory(dependencies)
 
 add_subdirectory(bear)
 add_subdirectory(intercept)
