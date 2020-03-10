@@ -19,8 +19,6 @@
 
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
-
 package supervise;
 option cc_enable_arenas = true;
 
@@ -32,9 +30,12 @@ service Interceptor {
 
 message Event {
 
-    google.protobuf.Timestamp timestamp = 2;
+    // Use more efficient time representation would be good.
+    // Eg.:
+    //  import "google/protobuf/timestamp.proto";
+    string timestamp = 1;
 
-    reserved 3 to 10;
+    reserved 2 to 10;
 
     oneof event {
         Started started = 11;
