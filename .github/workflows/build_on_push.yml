@@ -43,7 +43,8 @@ jobs:
           CTEST_OUTPUT_ON_FAILURE: 1
         run: |
           source "$HOME/venv/bin/activate"
-          make -C $HOME test
+          cd "$HOME"
+          ctest --tests-regex "^bear::.*"
       - name: Test package creation
         run: |
           make -C $HOME package
